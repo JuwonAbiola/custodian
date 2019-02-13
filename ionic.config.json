@@ -1,5 +1,5 @@
 {
   "name": "custodian",
-  "app_id": "",
+  "integrations": {},
   "type": "ionic-angular"
 }

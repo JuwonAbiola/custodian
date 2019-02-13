@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><img src="../../assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42"></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <br />
+  Kindly Confirm the Details Below to Proceed
+  <br />
+  <br />
+  <br />
+  <ion-card>
+    <ion-card-header class="head">
+      <span class="sp-left">POLICY INFORMATION</span>
+      <span class="sp-right">EBUSINESS POLICY</span>
+    </ion-card-header>
+    <ion-card-header class="c">
+      <span class="sp-left">
+        Policy Period:
+      </span>
+      <span class="sp-right">
+        {{startdateField}}-{{enddateField}}
+      </span><br /> <span class="sp-left">
+        Sum Insured:
+      </span>
+      <span class="sp-right">
+        {{sumInsField}}
+      </span> <br /><span class="sp-left">
+        Outstanding:
+      </span>
+      <span class="sp-right">
+        {{outPremiumField}}
+      </span><br /> <span class="sp-left">
+        Total Premium Due:
+      </span>
+      <span class="sp-right">
+        {{mPremiumField}} </span>
+    </ion-card-header>
+
+  </ion-card>
+  <br />
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div><button ion-button color="blue">Confirm</button></div>
+      </ion-col>
+      <ion-col>
+        <div><button ion-button (click)="back()" class="btn-bg">Cancel</button></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

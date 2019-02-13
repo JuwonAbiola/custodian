@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 246.341 163.973">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #52c234;
+      }
+
+      .cls-2 {
+        fill: #1e4a86;
+        opacity: 0.02;
+      }
+    </style>
+  </defs>
+  <g id="Group_336" data-name="Group 336" transform="translate(-57 -175)">
+    <g id="check" transform="translate(125 202.794)">
+      <g id="Group_298" data-name="Group 298" transform="translate(0 11.206)">
+        <g id="Group_297" data-name="Group 297" transform="translate(0 0)">
+          <path id="Path_600" data-name="Path 600" class="cls-1" d="M101.217,55.111a4.464,4.464,0,0,0-4.464,4.464v4.5a43.912,43.912,0,0,1-43.911,43.887h-.026a43.912,43.912,0,0,1,.025-87.824h.026a43.639,43.639,0,0,1,17.847,3.8,4.464,4.464,0,1,0,3.634-8.156,52.507,52.507,0,0,0-21.476-4.574H52.84A52.841,52.841,0,0,0,15.455,101.39a52.5,52.5,0,0,0,37.355,15.5h.031a52.841,52.841,0,0,0,52.84-52.813v-4.5A4.464,4.464,0,0,0,101.217,55.111Z" transform="translate(0 -11.206)"/>
+        </g>
+      </g>
+      <g id="Group_300" data-name="Group 300" transform="translate(33.864 16.071)">
+        <g id="Group_299" data-name="Group 299" transform="translate(0 0)">
+          <path id="Path_601" data-name="Path 601" class="cls-1" d="M232.227,35.053a4.465,4.465,0,0,0-6.314,0L175.856,85.111,164.5,73.754a4.464,4.464,0,0,0-6.313,6.314L172.7,94.581a4.464,4.464,0,0,0,6.314,0l53.214-53.214A4.464,4.464,0,0,0,232.227,35.053Z" transform="translate(-156.879 -33.746)"/>
+        </g>
+      </g>
+    </g>
+    <circle id="Ellipse_40" data-name="Ellipse 40" class="cls-2" cx="81.987" cy="81.987" r="81.987" transform="translate(57 175)"/>
+    <circle id="Ellipse_41" data-name="Ellipse 41" class="cls-2" cx="81.987" cy="81.987" r="81.987" transform="translate(139.368 175)"/>
+  </g>
+</svg>

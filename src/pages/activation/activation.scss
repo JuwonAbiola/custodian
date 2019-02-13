@@ -1,0 +1,105 @@
+page-activation {
+  .background {
+    background-image: url('/assets/img/back.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    // background-position: center;
+  }
+
+  .ion-card-content {
+    margin-top: 5;
+
+  }
+
+  .item.item-input {
+    // background-color: transparent;
+    background: rgba(0, 0, 0, .1);
+  }
+
+  ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 90px 1px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+
+  .act {
+    margin: 20% 5%;
+  }
+
+  .scroll-content {
+    // align-content: center;
+    display: flex;
+    // flex-direction: column;
+    justify-content: space-around;
+    // text-align: center;
+  }
+
+  ion-card.card {
+    box-shadow: none;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 5px;
+  }
+
+  ion-card-header.card-header>h2 {
+    font-size: 200%;
+    color: #fff;
+  }
+
+  ion-card-content.card-content h1,
+  h3,
+  p,
+  a {
+    color: #fff;
+  }
+
+  .claim {
+    border-right: 1px solid #fff;
+    padding-right: 5px;
+  }
+
+  .claim>p {
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .contact>p {
+    color: #fff;
+    font-size: 18px;
+  }
+
+  /*.acti {
+    position: absolute;
+    bottom:0px;
+    width: 100%;
+  }*/
+  .btn-bg {
+    background: #284191;
+    color: #4Ec7fb;
+  }
+
+  .btn-bg1 {
+    background: #4EC7FB;
+    color: #fff;
+  }
+
+  .toolbar-background {
+    color: #fff;
+    background-color: #A42f33 !important;
+    box-shadow: 0px !important;
+    border-bottom: 0px !important;
+  }
+
+  ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+}

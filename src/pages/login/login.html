@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><img src="../../assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="background">
+
+  <div class="act">
+    <h1>Welcome,</h1>
+    <h5>Sign in to continue.</h5><br />
+    <ion-list>
+      <ion-item class="pt-10">
+        <ion-input type="text" placeholder="Merchant ID" [(ngModel)]="MerchantID"></ion-input>
+        <ion-icon name="person" item-left></ion-icon>
+      </ion-item>
+      <br />
+      <ion-item class="pt-15">
+        <ion-input type="text" placeholder="POLICY NUMBER" [(ngModel)]="MerchantPWD"></ion-input>
+        <ion-icon name="lock" item-left></ion-icon>
+      </ion-item>
+      <div class="flexy pt-20"><button class="signin-btn" ion-button block color="blue" (click)="login()">Sign In</button></div>
+
+    </ion-list>
+  </div>
+
+</ion-content>
