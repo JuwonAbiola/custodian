@@ -1,0 +1,28 @@
+<!--
+  Generated template for the DevicesModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><img src="assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42"></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div>
+    <ul>
+      <li style="font-size:13px;" *ngFor="let device of deviceList" style="padding:10px">
+        <a style="display:block; padding:6px 0;" (click)="bluetoothfunc(device.name, device.address)"> {{device.name}}
+        </a>
+      </li>
+    </ul>
+    <br>
+  </div>
+
+</ion-content>

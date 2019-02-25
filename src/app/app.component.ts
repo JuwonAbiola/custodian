@@ -7,6 +7,17 @@ import { NotificationPage } from '../pages/notification/notification';
 import { ActivationPage } from '../pages/activation/activation';
 import { KeysPage } from '../pages/keys/keys';
 import { PaymentPage } from '../pages/payment/payment';
+import { EnterPinPage } from '../pages/enter-pin/enter-pin';
+import { InsertCardPage } from '../pages/insert-card/insert-card';
+import { TransactionDetailsPage } from '../pages/transaction-details/transaction-details';
+import { HomePage } from '../pages/home/home';
+import { ProceedPage } from '../pages/proceed/proceed';
+import { BusinessPage } from '../pages/business/business';
+import { RenewalPage } from '../pages/renewal/renewal';
+import { ResultmodalPage } from '../pages/resultmodal/resultmodal';
+import { SuccessPage } from '../pages/success/success';
+import { FailedPage } from '../pages/failed/failed';
+import { ConnectPage } from '../pages/connect/connect';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,7 +35,7 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { name: 'Redownload Keys', component: KeysPage, icon: "download" },
+      // { name: 'Redownload Keys', component: KeysPage, icon: "download" },
       { name: 'Notifications', component: NotificationPage, icon: "mail" },
       { name: 'Logout', component: LoginPage, icon: "log-out" },
     ];

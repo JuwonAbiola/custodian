@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><img src="../../assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42">
+    <ion-title><img src="assets/icon/logo-white (1).svg" alt="Smiley face" height="42" width="100">
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,15 +10,30 @@
     <h1>Welcome,</h1>
     <h5>Sign in to continue.</h5><br />
     <ion-list>
-      <ion-item class="pt-10">
+      <!-- <ion-item class="pt-10"> 
         <ion-input type="text" placeholder="Merchant ID" [(ngModel)]="MerchantID"></ion-input>
-        <ion-icon name="person" item-left></ion-icon>
+        <ion-icon name="person" item-left style="color: #A42f33"></ion-icon>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label>Subsidiary</ion-label>
+        <ion-select [(ngModel)]="Subsidiary" interface="popover">
+          <ion-option value=1>Life</ion-option>
+          <ion-option value=2>General</ion-option>
+        </ion-select>
+        <ion-icon name="person" item-left style="color: #A42f33"></ion-icon>
       </ion-item>
+
+
+      <br />
       <br />
       <ion-item class="pt-15">
-        <ion-input type="text" placeholder="POLICY NUMBER" [(ngModel)]="MerchantPWD"></ion-input>
-        <ion-icon name="lock" item-left></ion-icon>
+        <ion-input type="text" placeholder="Policy Number" [(ngModel)]="Policy"></ion-input>
+        <ion-icon name="lock" item-left style="color: #A42f33"></ion-icon>
       </ion-item>
+      <br />
+      <br />
+
       <div class="flexy pt-20"><button class="signin-btn" ion-button block color="blue" (click)="login()">Sign In</button></div>
 
     </ion-list>

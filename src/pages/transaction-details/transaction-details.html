@@ -1,0 +1,74 @@
+<!--
+  Generated template for the TransactionDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar>
+    <ion-title><img src="assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42"></ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="display:flex; justify-content:center; align-items:center; align-content:center;flex-direction: column">
+
+    <ion-img class="map" [src]="transimg" style="height:20%;width:20%; "></ion-img>
+
+  </div>
+  <br />
+  <ion-card>
+    <!-- <ion-img class="map" [src]="transimg" style="height:20%;width:20%; "></ion-img> -->
+
+    <ion-card-header class="head">
+      TRANSACTION DETAILS
+    </ion-card-header>
+    <ion-card-header class="c">
+      <span class="sp-left">
+        Card Holder:
+      </span>
+      <span class="sp-right">
+        {{cardh}}
+      </span><br /><br /><br /> <span class="sp-left">
+        Response:
+      </span>
+      <span class="sp-right">
+        {{res}}
+      </span> <br /><br /><br /><span class="sp-left">
+        Card Number:
+      </span>
+      <span class="sp-right">
+        {{cardn}}
+      </span><br /><br /><br /> <span class="sp-left">
+        Card Type:
+      </span>
+      <span class="sp-right">
+        {{cardt}} </span><br /><br /><br />
+
+      <span class="sp-left">
+        Operation:
+      </span>
+      <span class="sp-right">
+        {{operation}} </span>
+      <br /><br /><br />
+      <span class="sp-left">
+        Amount:
+      </span>
+      <span class="sp-right">
+        ₦{{inst}} </span><br /><br /><br /><span class="sp-left">
+        Transaction ID:
+      </span>
+      <span class="sp-right">
+        {{tid}} </span><br /><br /><br />
+      <span class="sp-left">
+        RRN:
+      </span>
+      <span class="sp-right">
+        {{rrn}} </span>
+    </ion-card-header>
+    <div class="flexy pt-20"><button class="signin-btn" ion-button block color="blue" (click)="login()">Go Home</button></div>
+  </ion-card>
+</ion-content>

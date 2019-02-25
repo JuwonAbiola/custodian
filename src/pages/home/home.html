@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title><img src="../../assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42">
+    <ion-title><img src="assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42">
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="notify()">
@@ -19,6 +19,15 @@
     <ion-row align-items-center>
       <ion-col>
         <div>
+          <br />
+          <b style="color: #A42f33">Agent Name:</b>&#160;<b>{{agenctNameField}}</b>
+          <br />
+          <br />
+          <b style="color: #A42f33"> ID:</b>&#160;<b>{{agenctNumField}}</b>
+          <br />
+          <br />
+
+
           <ion-card>
             <ion-card-header class="head">
               <span class="sp-left">CLIENT DETAILS</span>
@@ -28,7 +37,7 @@
               <ion-grid class="c">
                 <ion-row>
                   <ion-col col-11 push-1>
-                    <div> {{insuredNameField}}-{{insuredOthNameField}}
+                    <div> <b>{{insuredNameField}}-{{insuredOthNameField}}</b>
                     </div>
                   </ion-col>
                   <ion-col col-1 pull-11>
@@ -48,6 +57,7 @@
                     <div>
                     </div>
                   </ion-col>
+                  <br /><br />
                   <ion-col col-11 push-1>
                     <div> {{dOBField}}
                     </div>
@@ -56,14 +66,17 @@
                     <div>
                     </div>
                   </ion-col>
+                  <br /><br />
                   <ion-col col-11 push-1>
                     <div> {{telNumField}}
                     </div>
                   </ion-col>
+                  <br /><br />
                   <ion-col col-1 pull-11>
                     <div>
                     </div>
                   </ion-col>
+                  <br /><br />
                   <ion-col col-11 push-1>
                     <div> {{insAddr1Field}},{{insAddr2Field}}
                     </div>
@@ -74,7 +87,8 @@
                   </ion-col>
                   <ion-col col-11 push-1>
                     <div><span class="sp-leftt">{{insStateField}}</span>
-                      <span class="sp-right">VIEW DETAILS</span>
+                      <span class="sp-right" (click)="details()" style="color: #A42f33"><b>VIEW DETAILS &#160;
+                          <ion-icon name="ios-arrow-forward"></ion-icon></b></span>
                     </div>
                   </ion-col>
                   <ion-col col-1 pull-11>
@@ -107,72 +121,66 @@
                         Policy Period:
                       </span>
                       <span class="sp-right">
-                        {{startdateField}}-{{enddateField}}
+                        {{startdateField}}
+                        <!-- -{{enddateField}} -->
                       </span><br />
                     </div>
                   </ion-col>
                   <ion-col col-1 pull-11>
                     <div class="fs">
-                      <!-- <img src="../../assets/icon/protection-shield-with-a-check-mark.svg" alt="Smiley face" height="42"
-                        width="42"> -->
+                      <img src="assets/icon/protection-shield-with-a-check-mark.svg" alt="Smiley face" height="42"
+                        width="42">
                     </div>
                   </ion-col>
                   <ion-col col-11 push-1>
                     <div> <span class="sp-left">
                         Sum Insured:
                       </span>
-                      <span class="sp-right">
-                        {{sumInsField}}
+                      <span class="sp-right" style="color:green">
+                        <b>₦{{sumInsField}}</b>
                       </span> <br />
                     </div>
                   </ion-col>
+                  <br /><br />
                   <ion-col col-1 pull-11>
                     <div>
                     </div>
                   </ion-col>
+                  <br /><br />
                   <ion-col col-11 push-1>
-                    <div> <span class="sp-left">
-                        Outstanding:
+                    <div><span class="sp-left">
+                        Installmental Premium :
                       </span>
-                      <span class="sp-right">
-                        {{outPremiumField}}
-                      </span><br />
+                      <span class="sp-right" style="color:green">
+                        <b> ₦{{outPremiumField}}</b> </span>
                     </div>
                   </ion-col>
-                  <ion-col col-1 pull-11>
-                    <div>
-                    </div>
-                  </ion-col>
+                  <br /><br />
                   <ion-col col-11 push-1>
                     <div><span class="sp-left">
                         Installmental Premium Due:
                       </span>
-                      <span class="sp-right">
-                        {{instPremiumField}} </span>
+                      <span class="sp-right" style="color:green">
+                        <b> ₦{{instPremiumField}}</b> </span>
                     </div>
                   </ion-col>
-                  <ion-col col-1 pull-11>
-                    <div>
-                    </div>
-                  </ion-col>
+                  <br /><br />
                   <ion-col col-11 push-1>
-                    <div> <span class="sp-left">
-                        Total Premium Due:
+                    <div (click)="doRadio()"><span class="sp-left">
+                        <strong> Total Premium Due:</strong>
                       </span>
                       <span class="sp-right">
-                        {{mPremiumField}} </span>
+                        <b> {{inst}} <ion-icon name="arrow-dropdown"></ion-icon>
+                        </b> </span>
                     </div>
                   </ion-col>
-                  <ion-col col-1 pull-11>
-                    <div>
-                    </div>
-                  </ion-col>
+
 
                 </ion-row>
               </ion-grid>
             </ion-card-header>
             <div class="flexy pt-20"><button class="signin-btn" ion-button block color="blue" (click)="pay()">Make
-                Payment </button></div>
+                Payment &#160; <ion-icon name="ios-arrow-forward"></ion-icon></button></div>
 
           </ion-card>
         </div>

@@ -1,10 +1,13 @@
 page-login {
 
   .background {
-    background-image: url('/assets/img/back.png');
+    background-image: url('../assets/img/back.png');
     background-size: cover;
     background-repeat: no-repeat;
     // background-position: center;
+    font-family: 'AnenirNext';
+
+
   }
 
   ion-card.card {
@@ -26,6 +29,10 @@ page-login {
 
     width: 90%;
     bottom: 10%;
+  }
+
+  .item.item-select {
+    background: rgba(0, 0, 0, .1);
   }
 
   .item.item-input {

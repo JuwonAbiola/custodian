@@ -1,7 +1,18 @@
 page-home {
+  @font-face {
+    font-family: AvenirNext;
+    src: url(../assets/fonts/AvenirNextLTPro-Regular.otf) format("ttf");
+    font-weight: 200
+  }
+
   .background {
     background-size: cover;
+    background-color: #ECEFF1;
     background-repeat: no-repeat;
+    font-family: 'AnenirNext' !important;
+    font-size: 13px !important;
+    position: relative;
+
   }
 
   .fs {
@@ -9,6 +20,8 @@ page-home {
   }
 
   .head {
+    font-size: 13px;
+
     border-bottom: 0.5px solid black;
   }
 
@@ -26,7 +39,7 @@ page-home {
   }
 
   .c {
-    font-size: -1.4rem;
+    font-size: 13px;
     color: #222;
     padding: 0.1px;
   }
@@ -49,12 +62,12 @@ page-home {
 
   .card-content-md {
     padding: 0px 0px;
-    font-size: 1.4rem;
+    font-size: 13px;
     line-height: 1.5;
   }
 
   .card-header-md {
-    font-size: 1.6rem;
+    font-size: 13px !important;
     color: #222;
     padding: 10px;
   }
@@ -75,7 +88,7 @@ page-home {
 
   .claim>p {
     color: #fff;
-    font-size: 18px;
+    font-size: 13px;
   }
 
   .contact>p {

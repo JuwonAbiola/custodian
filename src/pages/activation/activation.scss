@@ -1,9 +1,11 @@
 page-activation {
   .background {
-    background-image: url('/assets/img/back.png');
+    background-image: url('../assets/img/back.png');
     background-size: cover;
     background-repeat: no-repeat;
     // background-position: center;
+    font-family: 'AnenirNext';
+
   }
 
   .ion-card-content {

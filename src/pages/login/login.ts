@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { Injectable } from '@angular/core';
-
+import { MenuController } from 'ionic-angular'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 /**
  * Generated class for the LoginPage page.
@@ -18,10 +18,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 @Injectable()
 export class LoginPage {
-  MerchantID: String = '';
-  MerchantPWD: String = '';
+  Subsidiary: string = '';
+  Policy: string = '';
 
-  constructor(public alertCtrl: AlertController, public loadingCtrl: LoadingController, private http: HttpClient, private toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public alertCtrl: AlertController, public loadingCtrl: LoadingController, private http: HttpClient, private toastCtrl: ToastController, public navCtrl: NavController, public menuCtrl: MenuController, public navParams: NavParams) {
+    this.menuCtrl.enable(false, 'myMenu');
   }
   // login() {
   //   this.navCtrl.push(HomePage);
@@ -39,28 +40,27 @@ export class LoginPage {
 
   }
   clearData = () => {
-    this.MerchantID = '';
-    this.MerchantPWD = '';
+    this.Subsidiary = '';
+    this.Policy = '';
   }
 
 
   login() {
-    // if (this.surname == undefined || this.email == undefined) {
+    if (this.Subsidiary === '' || this.Policy == '') {
 
-    //   let toast = this.toastCtrl.create({
-    //     message: 'Please Fill all fields',
-    //     duration: 3000,
-    //     position: 'top'
-    //   });
+      let toast = this.toastCtrl.create({
+        message: 'Please Fill all fields',
+        duration: 3000,
+        position: 'top'
+      });
 
-    //   toast.present();
-    //   return;
-    // }
-
-    // const loader = this.loadingCtrl.create({
-    //   content: "Please wait..."
-    // });
-    // loader.present();
+      toast.present();
+      return;
+    }
+    const loader = this.loadingCtrl.create({
+      content: "Please wait..."
+    });
+    loader.present();
 
     let headers = new Headers();
     headers.append("Accept", 'application/json');
@@ -68,30 +68,62 @@ export class LoginPage {
 
     let data = {
       merchant_id: "CUST_00004",
-      policy_number: "HO/V/29/B0001235",
-      subsidiary: 2
+      policy_number: this.Policy,
+      subsidiary: this.Subsidiary
     }
+    console.log(data);
+
+    localStorage.setItem('merchant_id', "CUST_00004");
+    localStorage.setItem('policy_number', this.Policy);
+    localStorage.setItem('subsidiary', this.Subsidiary);
 
     this.http.post("https://apitest.custodianplc.com.ng/api/Agent/GetPolicyDetails", data, { headers: new HttpHeaders().set('Authorization', 'NkY4NTQ4MEQ5RThGMUM1RjlGOTlDM0M2QkJCMUJDQ0Y1QjI4MEVCNkUyQjQ1QzFFQzlGRDJFN0U5MDhERTdDNg==') })
       .subscribe((res: any) => {
-        localStorage.setItem('insuredNameField', res.data.insuredNameField);
-        localStorage.setItem('insuredOthNameField', res.data.insuredOthNameField);
-        localStorage.setItem('insuredEmailField', res.data.insuredEmailField);
-        localStorage.setItem('dOBField', res.data.dOBField);
-        localStorage.setItem('telNumField', res.data.telNumField);
-        localStorage.setItem('insAddr1Field', res.data.insAddr1Field);
-        localStorage.setItem('insAddr2Field', res.data.insAddr2Field);
-        localStorage.setItem('insStateField', res.data.insStateField);
+        if (res.status === 200) {
+          localStorage.setItem('insuredNameField', res.data.insuredNameField);
+          localStorage.setItem('insuredOthNameField', res.data.insuredOthNameField);
+          localStorage.setItem('insuredEmailField', res.data.insuredEmailField);
+          localStorage.setItem('dOBField', res.data.dOBField);
+          localStorage.setItem('telNumField', res.data.telNumField);
+          localStorage.setItem('insAddr1Field', res.data.insAddr1Field);
+          localStorage.setItem('insAddr2Field', res.data.insAddr2Field);
+          localStorage.setItem('insStateField', res.data.insStateField);
+          localStorage.setItem('agenctNumField', res.data.agenctNumField);
+          localStorage.setItem('agenctNameField', res.data.agenctNameField);
 
-        localStorage.setItem('startdateField', res.data.startdateField);
-        localStorage.setItem('enddateField', res.data.enddateField);
-        localStorage.setItem('sumInsField', res.data.sumInsField);
-        localStorage.setItem('outPremiumField', res.data.outPremiumField);
-        localStorage.setItem('instPremiumField', res.data.instPremiumField);
-        localStorage.setItem('mPremiumField', res.data.mPremiumField);
-        this.navCtrl.setRoot(HomePage);
+          localStorage.setItem('startdateField', res.data.startdateField);
+          localStorage.setItem('enddateField', res.data.enddateField);
+          localStorage.setItem('sumInsField', res.data.sumInsField);
+          localStorage.setItem('outPremiumField', res.data.outPremiumField);
+          localStorage.setItem('instPremiumField', res.data.instPremiumField);
+          localStorage.setItem('mPremiumField', res.data.mPremiumField);
+          localStorage.setItem('bizUnitField', res.data.bizUnitField);
+          this.navCtrl.setRoot(HomePage);
+          loader.dismiss();
+        }
+        else {
+          loader.dismiss();
+          const alert = this.alertCtrl.create({
+            title: '',
+            subTitle: res.message,
+            buttons: ['OK']
+          });
+          alert.present();
+        }
+
+
       }, error => {
+        loader.dismiss();
         console.log(error);
+        loader.dismiss();
+        // alert(error.message);
+        const alert = this.alertCtrl.create({
+          title: '',
+          subTitle: "Check your Internet Connection",
+          buttons: ['OK']
+        });
+        alert.present();
+
       });
   }
 }

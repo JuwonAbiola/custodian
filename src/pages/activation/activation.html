@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title><img src="../../assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42">
+    <ion-title><img src="assets/icon/logo-white (1).svg" alt="Smiley face" height="42" width="100">
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -22,7 +22,7 @@
           <br />
           <ion-list>
             <ion-item>
-              <ion-input type="String" placeholder="Activation Code"></ion-input>
+              <ion-input type="number" placeholder="Activation Code" [(ngModel)]="activationCode"></ion-input>
             </ion-item>
             <br />
             <div class="flexy pt-20"><button class="signin-btn" ion-button block color="blue" (click)="act()">Proceed</button></div>

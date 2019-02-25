@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><img src="../../assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42"></ion-title>
+    <ion-title><img src="assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42"></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,27 +15,32 @@
       <span class="sp-left">POLICY INFORMATION</span>
       <span class="sp-right">EBUSINESS POLICY</span>
     </ion-card-header>
+    <br />
+    <br />
     <ion-card-header class="c">
       <span class="sp-left">
         Policy Period:
       </span>
       <span class="sp-right">
         {{startdateField}}-{{enddateField}}
-      </span><br /> <span class="sp-left">
+      </span><br /><br />
+      <span class="sp-left">
         Sum Insured:
       </span>
-      <span class="sp-right">
-        {{sumInsField}}
-      </span> <br /><span class="sp-left">
-        Outstanding:
+      <b><span class="sp-right" style="color:green">
+          ₦{{sumInsField}}
+        </span></b> <br /><br /><span class="sp-left">
+        Installmental Premium:
       </span>
-      <span class="sp-right">
-        {{outPremiumField}}
-      </span><br /> <span class="sp-left">
-        Total Premium Due:
+      <b><span class="sp-right" style="color:green">
+          ₦{{outPremiumField}}
+        </span></b><br /><br /> <span class="sp-left">
+        <b>Total Premium Due:</b>
       </span>
-      <span class="sp-right">
-        {{mPremiumField}} </span>
+      <b><span class="sp-right" style="color:green">
+          ₦{{inst}}
+        </span></b>
+      <br /><br />
     </ion-card-header>
 
   </ion-card>
@@ -43,10 +48,10 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <div><button ion-button color="blue">Confirm</button></div>
+        <div><button ion-button color="blue" (click)="payment()">CONFIRM</button></div>
       </ion-col>
       <ion-col>
-        <div><button ion-button (click)="back()" class="btn-bg">Cancel</button></div>
+        <div><button ion-button (click)="back()" class="btn-bg">CANCEL</button></div>
       </ion-col>
     </ion-row>
   </ion-grid>

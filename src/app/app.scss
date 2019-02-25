@@ -13,8 +13,13 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 * {
-  font-family: 'Maven Pro', sans-serif;
+  font-family: 'AnenirNext', 'Maven Pro';
 }
+
+// font-family: 'AnenirNext' !important;
+
+
+@import '../theme/fonts';
 
 .main-bg {
   // background-image: url('../assets/img/astro.jpg') !important;
