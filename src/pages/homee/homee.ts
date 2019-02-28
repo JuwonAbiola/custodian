@@ -9,10 +9,10 @@ import { DevicesModalPage } from '../devices-modal/devices-modal';
 declare var PaypadFacade: any;
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-homee',
+  templateUrl: 'homee.html'
 })
-export class HomePage {
+export class HomeePage {
   InsuredName: string;
   InsuredOthName: string;
   InsuredEmail: string;
@@ -42,6 +42,7 @@ export class HomePage {
   all8: string;
   all9: string;
   Inst: string;
+  testRadioOpen: boolean;
   // gsm: string;
   // email: string;
   // userID: string;
@@ -55,8 +56,20 @@ export class HomePage {
     myModal.present();
   }
   connectToPinpadAndDownloadKeys() {
+    if (this.Inst === undefined) {
+      let toast = this.toastCtrl.create({
+        message: 'Please select a premium due',
+        duration: 3000,
+        position: 'top',
+        cssClass: 'normalToast'
 
-    localStorage.setItem('Inst', this.mPremium);
+      });
+
+      toast.present();
+      return;
+
+    }
+    localStorage.setItem('Inst', this.Inst);
 
     var success = (message) => {
 
@@ -222,6 +235,103 @@ export class HomePage {
     this.OutPremium = localStorage.getItem('OutPremium');
     this.InstPremium = localStorage.getItem('InstPremium');
     this.mPremium = localStorage.getItem('mPremium');
+
+    let InstPremium = parseInt(this.InstPremium);
+    let Insta = InstPremium;
+    var all = new Array();
+    for (let current = InstPremium; current <= InstPremium * 10; current = current + Insta) {
+      all.push(current);
+      console.log(current)
+    }
+
+    this.all0 = all[0]
+    this.all1 = all[1]
+    this.all2 = all[2]
+    this.all3 = all[3]
+    this.all4 = all[4]
+    this.all5 = all[5]
+    this.all6 = all[6]
+    this.all7 = all[7]
+    this.all8 = all[8]
+    this.all9 = all[9]
+
   }
+
+  doRadio() {
+    let alert = this.alertCtrl.create();
+    alert.setTitle('Installmental Premium:');
+
+    alert.addInput({
+      type: 'radio',
+      label: '₦' + this.all0,
+      value: this.all0,
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: '₦' + this.all1,
+      value: this.all1
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: '₦' + this.all2,
+      value: this.all2
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: '₦' + this.all3,
+      value: this.all3
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: '₦' + this.all4,
+      value: this.all4
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: '₦' + this.all5,
+      value: this.all5
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: '₦' + this.all6,
+      value: this.all6
+    });
+    alert.addInput({
+      type: 'radio',
+      label: '₦' + this.all7,
+      value: this.all7
+    });
+    alert.addInput({
+      type: 'radio',
+      label: '₦' + this.all8,
+      value: this.all8
+    });
+    alert.addInput({
+      type: 'radio',
+      label: '₦' + this.all9,
+      value: this.all9
+    });
+
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'Ok',
+      handler: data => {
+        console.log('Radio data:', data);
+        this.testRadioOpen = false;
+        this.Inst = data;
+      }
+    });
+
+    alert.present().then(() => {
+      this.testRadioOpen = true;
+    });
+  }
+
 
 }

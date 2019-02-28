@@ -149,16 +149,7 @@
                   <br /><br />
                   <ion-col col-11 push-1>
                     <div><span class="sp-left">
-                        Premium :
-                      </span>
-                      <span class="sp-right" style="color:green">
-                        <b> ₦{{OutPremium}}</b> </span>
-                    </div>
-                  </ion-col>
-                  <br /><br />
-                  <ion-col col-11 push-1>
-                    <div><span class="sp-left">
-                        Premium Due:
+                        Installment Premium :
                       </span>
                       <span class="sp-right" style="color:green">
                         <b> ₦{{InstPremium}}</b> </span>
@@ -167,10 +158,19 @@
                   <br /><br />
                   <ion-col col-11 push-1>
                     <div><span class="sp-left">
-                        <strong> Total Premium Due:</strong>
+                        Installment Premium Due:
                       </span>
                       <span class="sp-right" style="color:green">
-                        <b> ₦{{mPremium}}
+                        <b> ₦{{OutPremium}}</b> </span>
+                    </div>
+                  </ion-col>
+                  <br /><br />
+                  <ion-col col-11 push-1>
+                    <div (click)="doRadio()"><span class="sp-left">
+                        <strong> Total Premium Due:</strong>
+                      </span>
+                      <span class="sp-right">
+                        <b> {{Inst}} <ion-icon name="arrow-dropdown"></ion-icon>
                         </b> </span>
                     </div>
                   </ion-col>

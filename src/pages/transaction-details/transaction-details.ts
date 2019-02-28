@@ -7,6 +7,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginPage } from '../login/login';
 import { ConnectPage } from '../connect/connect';
 import { PaymentPage } from '../payment/payment';
+import { BackButton } from '@scaffold-digital/ionic-hardware-buttons';
+import { HomePage } from '../home/home';
+
 // import { PaymentPage } from '../payment/payment';
 /**
  * Generated class for the TransactionDetailsPage page.
@@ -22,6 +25,10 @@ import { PaymentPage } from '../payment/payment';
 })
 @Injectable()
 export class TransactionDetailsPage {
+  @BackButton()
+  public onBackButton() {
+    this.navCtrl.setRoot(HomePage);
+  }
   cardh: string;
   res: string;
   cardn: string;
@@ -30,7 +37,7 @@ export class TransactionDetailsPage {
   auth: string;
   rrn: string;
   responsecode: string;
-  inst: string;
+  Inst: string;
   aid: string;
   expiry: string;
   transimg: string = "";
@@ -76,7 +83,8 @@ export class TransactionDetailsPage {
       this.rrn = result.rrn;
       this.aid = result.aid;
       this.expiry = result.expiry;
-      this.inst = localStorage.getItem('inst');
+      this.Inst = localStorage.getItem('Inst')
+
       this.tid = tid;
 
     }
@@ -91,7 +99,7 @@ export class TransactionDetailsPage {
       this.rrn = result.rrn;
       this.aid = result.aid;
       this.expiry = result.expiry;
-      this.inst = localStorage.getItem('inst');
+      this.Inst = localStorage.getItem('Inst')
       this.tid = tid;
 
       const confirm = this.alertCtrl.create({
@@ -124,10 +132,10 @@ export class TransactionDetailsPage {
       "username": localStorage.getItem("username"),
       "rrn": this.rrn,
       "cardNo": this.cardn,
-      "response": this.rrn,
+      "response": this.res,
       "responseCode": this.responsecode,
-      "purchase": this.inst,
-      "total": this.inst,
+      "purchase": this.Inst,
+      "total": this.Inst,
       "transactionId": tid,
       "transactionType": "CARD",
       "tenderType": this.cardt,

@@ -41,6 +41,14 @@
   padding: 25px 0 !important;
 }
 
+.normalToast {
+  .toast-message {
+    border-radius: 5.65rem !important;
+    background: color($colors, white);
+    color: color($colors, danger);
+  }
+}
+
 .button-outline-md-blue {
   padding: 25px 0 !important;
 }

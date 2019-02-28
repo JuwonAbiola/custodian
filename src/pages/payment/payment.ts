@@ -1,6 +1,7 @@
 import { Component, ComponentFactoryResolver } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController, LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { HomeePage } from '../homee/homee';
 import { DevicesModalPage } from '../devices-modal/devices-modal';
 import { InsertCardPage } from '../insert-card/insert-card';
 import { EnterPinPage } from '../enter-pin/enter-pin';
@@ -20,27 +21,45 @@ declare var PaypadFacade: any;
   templateUrl: 'payment.html',
 })
 export class PaymentPage {
-  startdateField: string;
-  enddateField: string;
-  sumInsField: string;
-  inst: string;
-  instPremiumField: string;
-  outPremiumField: string;
+  Startdate: string;
+  Enddate: string;
+  SumIns: string;
+  Inst: string;
+  InstPremium: string;
+  OutPremium: string;
+  subsidiary: string;
+  in: string;
   private loader;
 
 
   constructor(public modalCtrl: ModalController, private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public loading: LoadingController) {
   }
-  back() {
-    this.navCtrl.push(HomePage);
-  }
+
   ionViewDidLoad() {
-    this.startdateField = localStorage.getItem('startdateField');
-    this.enddateField = localStorage.getItem('enddateField');
-    this.sumInsField = localStorage.getItem('sumInsField');
-    this.inst = localStorage.getItem('inst');
-    this.instPremiumField = localStorage.getItem('instPremiumField');
-    this.outPremiumField = localStorage.getItem('outPremiumField');
+    this.subsidiary = localStorage.getItem('subsidiary')
+    this.Startdate = localStorage.getItem('Startdate');
+    this.Enddate = localStorage.getItem('Enddate');
+    this.SumIns = localStorage.getItem('SumIns');
+    this.Inst = localStorage.getItem('Inst');
+    this.InstPremium = localStorage.getItem('InstPremium');
+    this.OutPremium = localStorage.getItem('OutPremium');
+    this.subsidiary = localStorage.getItem('subsidiary')
+
+    if (this.subsidiary === '1') {
+      this.in = "Installmental";
+    }
+
+  }
+
+  back() {
+    if (this.subsidiary === '1') {
+      this.navCtrl.push(HomeePage);
+    }
+    else {
+      this.navCtrl.push(HomePage);
+
+    }
+
   }
 
   openModal(data) {
@@ -199,7 +218,7 @@ export class PaymentPage {
 
     PaypadFacade.payment({
       "amount":
-        localStorage.getItem('inst')
+        localStorage.getItem('Inst')
       , "account": "savings"
     }, (data) => {
 

@@ -1,23 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, NavController, App, AlertController } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
 import { NotificationPage } from '../pages/notification/notification';
 import { ActivationPage } from '../pages/activation/activation';
-import { KeysPage } from '../pages/keys/keys';
-import { PaymentPage } from '../pages/payment/payment';
-import { EnterPinPage } from '../pages/enter-pin/enter-pin';
-import { InsertCardPage } from '../pages/insert-card/insert-card';
-import { TransactionDetailsPage } from '../pages/transaction-details/transaction-details';
 import { HomePage } from '../pages/home/home';
-import { ProceedPage } from '../pages/proceed/proceed';
-import { BusinessPage } from '../pages/business/business';
-import { RenewalPage } from '../pages/renewal/renewal';
-import { ResultmodalPage } from '../pages/resultmodal/resultmodal';
-import { SuccessPage } from '../pages/success/success';
-import { FailedPage } from '../pages/failed/failed';
-import { ConnectPage } from '../pages/connect/connect';
+import { HomeePage } from '../pages/homee/homee';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -31,7 +21,9 @@ export class MyApp {
 
 
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, public app: App, public alertCtrl: AlertController
+
+  ) {
     this.initializeApp();
 
     this.pages = [
@@ -50,8 +42,58 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       // StatusBar.styleDefault();
       // Splashscreen.hide();
+      this.platform.registerBackButtonAction(() => {
+        let nav = this.app.getActiveNavs()[0];
+        let activeView = nav.getActive();
+        // Checks if can go back before show up the alert
+        if (activeView.name === 'ConnectPage' || activeView.name === 'ActivationPage') {
+
+          this.platform.exitApp();
+        }
+        if (activeView.name === 'HomePage' || activeView.name === 'HomeePage') {
+
+          this.nav.setRoot(LoginPage);
+
+        }
+
+
+        if (activeView.name === 'LoginPage') {
+          const confirm = this.alertCtrl.create({
+            title: 'Exit',
+            message: 'Are you sure you want to exit the app?',
+            buttons: [
+              {
+                text: 'Cancel',
+                handler: () => {
+                  return;
+                }
+              },
+              {
+                text: 'Confirm',
+                handler: () => {
+                  this.platform.exitApp();
+                }
+              }
+            ]
+          });
+          confirm.present();
+        }
+
+
+
+        if (localStorage.getItem('subsidiary') === '1') {
+          this.nav.setRoot(LoginPage);
+        }
+        else {
+          this.nav.setRoot(LoginPage);
+        }
+
+        // this.platform.exitApp();
+      });
     });
   }
+
+
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario

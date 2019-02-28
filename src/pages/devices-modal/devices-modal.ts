@@ -184,7 +184,7 @@ export class DevicesModalPage {
 
     PaypadFacade.payment({
       "amount":
-        localStorage.getItem('inst')
+        localStorage.getItem('Inst')
 
       , "account": "savings"
     }, (data) => {

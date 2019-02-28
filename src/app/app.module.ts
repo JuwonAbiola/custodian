@@ -20,12 +20,15 @@ import { ProceedPage } from '../pages/proceed/proceed';
 import { BusinessPage } from '../pages/business/business';
 import { RenewalPage } from '../pages/renewal/renewal';
 import { SuperTabsModule } from 'ionic2-super-tabs';
-import { SuccessPage } from '../pages/success/success';
 import { FailedPage } from '../pages/failed/failed';
+import { HomeePage } from '../pages/homee/homee';
+
 //import { HTTP } from '@ionic-native/http/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { ResultmodalPage } from '../pages/resultmodal/resultmodal';
 import { DevicesModalPage } from '../pages/devices-modal/devices-modal';
+import { HardwareButtons } from '@scaffold-digital/ionic-hardware-buttons';
+
 
 
 @NgModule({
@@ -45,10 +48,10 @@ import { DevicesModalPage } from '../pages/devices-modal/devices-modal';
     ProceedPage,
     BusinessPage,
     RenewalPage,
-    SuccessPage,
     FailedPage,
     ConnectPage,
-    ResultmodalPage
+    ResultmodalPage,
+    HomeePage
   ],
   imports: [
     BrowserModule,
@@ -74,15 +77,16 @@ import { DevicesModalPage } from '../pages/devices-modal/devices-modal';
     ProceedPage,
     BusinessPage,
     RenewalPage,
-    SuccessPage,
     FailedPage,
     ConnectPage,
+    HomeePage,
     ResultmodalPage
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    HardwareButtons,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

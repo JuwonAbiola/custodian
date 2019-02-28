@@ -49,7 +49,9 @@ export class ActivationPage {
       let toast = this.toastCtrl.create({
         message: 'Please Enter Activation Code',
         duration: 3000,
-        position: 'top'
+        position: 'top',
+        cssClass: 'normalToast'
+
       });
 
       toast.present();
