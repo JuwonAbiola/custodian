@@ -16,13 +16,14 @@ export class HomePage {
   InsuredName: string;
   InsuredOthName: string;
   InsuredEmail: string;
-  DOB: string;
+  policy_number: string;
   TelNum: string;
   InsAddr1: string;
   InsAddr2: string;
   InsState: string;
   AgenctName: string;
   AgenctNum: string;
+  BizUnit: string;
 
 
   Startdate: string;
@@ -210,7 +211,7 @@ export class HomePage {
     this.InsuredName = localStorage.getItem('InsuredName');
     this.InsuredOthName = localStorage.getItem('InsuredOthName');
     this.InsuredEmail = localStorage.getItem('InsuredEmail');
-    this.DOB = localStorage.getItem('DOB');
+    this.policy_number = localStorage.getItem('policy_number');
     this.TelNum = localStorage.getItem('TelNum');
     this.InsAddr1 = localStorage.getItem('InsAddr1');
     this.InsAddr2 = localStorage.getItem('InsAddr2');
@@ -222,6 +223,27 @@ export class HomePage {
     this.OutPremium = localStorage.getItem('OutPremium');
     this.InstPremium = localStorage.getItem('InstPremium');
     this.mPremium = localStorage.getItem('mPremium');
+    this.BizUnit = localStorage.getItem('BizUnit');
+
+    if (localStorage.getItem('AgenctNum') === "NULL") {
+      this.AgenctNum = '';
+    } if (localStorage.getItem('AgenctName') === "NULL") {
+      this.AgenctName = '';
+    } if (localStorage.getItem('InsuredName') === "NULL") {
+      this.InsuredName = '';
+    } if (localStorage.getItem('policy_number') === "NULL") {
+      this.policy_number = '';
+    } if (localStorage.getItem('TelNum') === "NULL") {
+      this.TelNum = '';
+    } if (localStorage.getItem('InsAddr1') === "NULL") {
+      this.InsAddr1 = '';
+    } if (localStorage.getItem('InsAddr2') === "NULL") {
+      this.InsAddr2 = '';
+    } if (localStorage.getItem('InsState') === "NULL") {
+      this.InsState = '';
+    } if (localStorage.getItem('InsuredEmail') === "NULL") {
+      this.InsuredEmail = '';
+    }
   }
 
 }

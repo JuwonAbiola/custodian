@@ -45,6 +45,7 @@ export class TransactionDetailsPage {
   merchant_id: string;
   policy_number: string;
   bizUnitField: string;
+  premium: string;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private http: HttpClient, public navParams: NavParams) {
   }
@@ -84,8 +85,33 @@ export class TransactionDetailsPage {
       this.aid = result.aid;
       this.expiry = result.expiry;
       this.Inst = localStorage.getItem('Inst')
-
       this.tid = tid;
+
+
+      let headers = new Headers();
+      headers.append("Accept", 'application/json');
+      headers.append('Content-Type', 'application/json');
+
+      let datas = {
+        "merchant_id": localStorage.getItem('merchant_id'),
+        "policy_number": localStorage.getItem('policy_number'),
+        "subsidiary": localStorage.getItem('subsidiary'),
+        "biz_unit": localStorage.getItem('BizUnit'),
+        "reference_no": result.rrn,
+        "payment_narrtn": 'SUCCESS',
+        "premium": this.Inst
+      }
+      console.log(datas);
+      console.log(JSON.stringify(datas));
+
+      this.http.post("https://apitest.custodianplc.com.ng/api/Agent/PostTransaction", datas, { headers: new HttpHeaders().set('Authorization', 'NkY4NTQ4MEQ5RThGMUM1RjlGOTlDM0M2QkJCMUJDQ0Y1QjI4MEVCNkUyQjQ1QzFFQzlGRDJFN0U5MDhERTdDNg==') })
+        .subscribe((res: any) => {
+          console.log(res);
+          // alert(res.message);
+        }, error => {
+          console.log(error);
+          // alert(error.message);
+        });
 
     }
     else {
@@ -101,6 +127,32 @@ export class TransactionDetailsPage {
       this.expiry = result.expiry;
       this.Inst = localStorage.getItem('Inst')
       this.tid = tid;
+
+      let headers = new Headers();
+      headers.append("Accept", 'application/json');
+      headers.append('Content-Type', 'application/json');
+
+      let datas = {
+        "merchant_id": localStorage.getItem('merchant_id'),
+        "policy_number": localStorage.getItem('policy_number'),
+        "subsidiary": localStorage.getItem('subsidiary'),
+        "biz_unit": localStorage.getItem('BizUnit'),
+        "reference_no": result.rrn,
+        "payment_narrtn": 'FAILED',
+        "description": result.responsemessage,
+        "premium": this.Inst
+      }
+      console.log(datas);
+      console.log(JSON.stringify(datas));
+
+      this.http.post("https://apitest.custodianplc.com.ng/api/Agent/PostTransaction", datas, { headers: new HttpHeaders().set('Authorization', 'NkY4NTQ4MEQ5RThGMUM1RjlGOTlDM0M2QkJCMUJDQ0Y1QjI4MEVCNkUyQjQ1QzFFQzlGRDJFN0U5MDhERTdDNg==') })
+        .subscribe((res: any) => {
+          console.log(res);
+          // alert(res.message);
+        }, error => {
+          console.log(error);
+          // alert(error.message);
+        });
 
       const confirm = this.alertCtrl.create({
         title: 'ERROR',
@@ -166,37 +218,6 @@ export class TransactionDetailsPage {
         // alert(error.message);
       });
 
-    let headers = new Headers();
-    headers.append("Accept", 'application/json');
-    headers.append('Content-Type', 'application/json');
-
-    const bizUnitField = localStorage.getItem('bizUnitField');
-    const policy_number = localStorage.getItem('policy_number');
-    const merchant_id = localStorage.getItem('merchant_id');
-    const rrn = result.rrn;
-    const payment_narrtn = result.responsemessage;
-    const premium = 'n/a';
-
-    let datas = {
-      merchant_id: merchant_id,
-      policy_number: policy_number,
-      subsidiary: 2,
-      biz_unit: bizUnitField,
-      reference_no: rrn,
-      payment_narrtn: payment_narrtn,
-      premium: 0
-    }
-    console.log(datas);
-    console.log(JSON.stringify(datas));
-
-    this.http.post("https://apitest.custodianplc.com.ng/api/Agent/PostTransaction", datas, { headers: new HttpHeaders().set('Authorization', 'NkY4NTQ4MEQ5RThGMUM1RjlGOTlDM0M2QkJCMUJDQ0Y1QjI4MEVCNkUyQjQ1QzFFQzlGRDJFN0U5MDhERTdDNg==') })
-      .subscribe((res: any) => {
-        console.log(res);
-        // alert(res.message);
-      }, error => {
-        console.log(error);
-        // alert(error.message);
-      });
   }
 
 }

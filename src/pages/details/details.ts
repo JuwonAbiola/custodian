@@ -54,5 +54,24 @@ export class DetailsPage {
     this.PolicyNo = localStorage.getItem(' PolicyNoss');
     this.InsLGA = localStorage.getItem('InsLGA');
 
+    if (localStorage.getItem('AgenctNum') === "NULL") {
+      this.AgenctNum = '';
+    } if (localStorage.getItem('AgenctName') === "NULL") {
+      this.AgenctName = '';
+    } if (localStorage.getItem('InsuredName') === "NULL") {
+      this.InsuredName = '';
+    } if (localStorage.getItem('InsuredOthName') === "NULL") {
+      this.InsuredOthName = '';
+    } if (localStorage.getItem('TelNum') === "NULL") {
+      this.TelNum = '';
+    } if (localStorage.getItem('InsAddr1') === "NULL") {
+      this.InsAddr1 = '';
+    } if (localStorage.getItem('InsAddr2') === "NULL") {
+      this.InsAddr2 = '';
+    } if (localStorage.getItem('InsState') === "NULL") {
+      this.InsState = '';
+    } if (localStorage.getItem('InsuredEmail') === "NULL") {
+      this.InsuredEmail = '';
+    }
   }
 }

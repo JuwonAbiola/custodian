@@ -23,21 +23,15 @@
           <b style="color: #A42f33">Agent Name:</b>&#160;<b>{{AgenctName}}</b>
           <br />
           <br />
-          <b style="color: #A42f33"> ID:</b>&#160;<b>{{AgenctNum}}</b>
-          <br />
-          <br />
-
-
           <ion-card>
             <ion-card-header class="head">
               <span class="sp-left">CLIENT DETAILS</span>
-              <span class="sp-right">EBUSINESS POLICY</span>
             </ion-card-header>
             <ion-card-header class="c">
               <ion-grid class="c">
                 <ion-row>
                   <ion-col col-11 push-1>
-                    <div> <b>{{InsuredName}}-{{InsuredOthName}}</b>
+                    <div> <b>{{InsuredName}}</b>
                     </div>
                   </ion-col>
                   <ion-col col-1 pull-11>
@@ -59,7 +53,7 @@
                   </ion-col>
                   <br /><br />
                   <ion-col col-11 push-1>
-                    <div> {{DOB}}
+                    <div> {{policy_number}}
                     </div>
                   </ion-col>
                   <ion-col col-1 pull-11>
@@ -78,7 +72,7 @@
                   </ion-col>
                   <br /><br />
                   <ion-col col-11 push-1>
-                    <div> {{InsAddr1}},{{InsAddr2}}
+                    <div> {{BizUnit}}
                     </div>
                   </ion-col>
                   <ion-col col-1 pull-11>
@@ -86,7 +80,7 @@
                     </div>
                   </ion-col>
                   <ion-col col-11 push-1>
-                    <div><span class="sp-leftt">{{InsState}}</span>
+                    <div><span class="sp-left"></span>
                       <span class="sp-right" (click)="details()" style="color: #A42f33"><b>VIEW DETAILS &#160;
                           <ion-icon name="ios-arrow-forward"></ion-icon></b></span>
                     </div>
@@ -110,7 +104,6 @@
           <ion-card>
             <ion-card-header class="head">
               <span class="sp-left">POLICY INFORMATION</span>
-              <span class="sp-right">EBUSINESS POLICY</span>
             </ion-card-header>
             <ion-card-header class="c">
 

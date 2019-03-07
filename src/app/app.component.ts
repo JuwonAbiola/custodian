@@ -81,12 +81,37 @@ export class MyApp {
 
 
 
-        if (localStorage.getItem('subsidiary') === '1') {
-          this.nav.setRoot(LoginPage);
+        if (localStorage.getItem('subsidiary') === '1' && activeView.name === 'TransactionDetailsPage') {
+          this.nav.setRoot(HomeePage);
         }
-        else {
-          this.nav.setRoot(LoginPage);
+        else if (localStorage.getItem('subsidiary') === '2' && activeView.name === 'TransactionDetailsPage') {
+          this.nav.setRoot(HomePage);
         }
+
+        if (localStorage.getItem('subsidiary') === '1' && activeView.name === 'PaymentPage') {
+          this.nav.setRoot(HomeePage);
+        }
+        else if (localStorage.getItem('subsidiary') === '2' && activeView.name === 'PaymentPage') {
+          this.nav.setRoot(HomePage);
+        }
+
+        if (localStorage.getItem('subsidiary') === '1' && activeView.name === 'NotificationPage') {
+          this.nav.setRoot(HomeePage);
+        }
+        else if (localStorage.getItem('subsidiary') === '2' && activeView.name === 'NotificationPage') {
+          this.nav.setRoot(HomePage);
+        }
+
+        if (localStorage.getItem('subsidiary') === '1' && activeView.name === 'DetailsPage') {
+          this.nav.setRoot(HomeePage);
+        }
+        else if (localStorage.getItem('subsidiary') === '2' && activeView.name === 'DetailsPage') {
+          this.nav.setRoot(HomePage);
+        }
+
+        // else {
+        //   this.nav.setRoot(LoginPage);
+        // }
 
         // this.platform.exitApp();
       });
