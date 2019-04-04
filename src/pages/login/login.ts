@@ -72,17 +72,17 @@ export class LoginPage {
       headers.append('Content-Type', 'application/json');
 
       let data = {
-        merchant_id: "CUST_00004",
+        merchant_id: "CUST_WEB_00004",
         policy_number: this.Policy,
         subsidiary: this.Subsidiary
       }
       console.log(data);
 
-      localStorage.setItem('merchant_id', "CUST_00004");
+      localStorage.setItem('merchant_id', "CUST_WEB_00004");
       localStorage.setItem('policy_number', this.Policy);
       localStorage.setItem('subsidiary', this.Subsidiary);
 
-      this.http.post("https://apitest.custodianplc.com.ng/api/Agent/GetPolicyDetails", data, { headers: new HttpHeaders().set('Authorization', 'NkY4NTQ4MEQ5RThGMUM1RjlGOTlDM0M2QkJCMUJDQ0Y1QjI4MEVCNkUyQjQ1QzFFQzlGRDJFN0U5MDhERTdDNg==') })
+      this.http.post("https://api.custodianplc.com.ng/api/Agent/GetPolicyDetails", data, { headers: new HttpHeaders().set('Authorization', 'ODc4QUMxRjJEOEVEQTkwN0U0QzFBMTBFMjkxOTc1RDYwMTUwRjhBRkJCRkUyQzFDRjNCMkE2ODcwQTcxMjlFQQ==') })
         .subscribe((res: any) => {
           if (res.status === 200) {
             localStorage.setItem('InsuredName', res.data.insuredNameField);
@@ -143,17 +143,17 @@ export class LoginPage {
       headers.append('Content-Type', 'application/json');
 
       let data = {
-        merchant_id: "CUST_00004",
+        merchant_id: "CUST_WEB_00004",
         policy_number: this.Policy,
         subsidiary: this.Subsidiary
       }
       console.log(data);
 
-      localStorage.setItem('merchant_id', "CUST_00004");
+      localStorage.setItem('merchant_id', "CUST_WEB_00004");
       localStorage.setItem('policy_number', this.Policy);
       localStorage.setItem('subsidiary', this.Subsidiary);
 
-      this.http.post("https://apitest.custodianplc.com.ng/api/Agent/GetPolicyDetails", data, { headers: new HttpHeaders().set('Authorization', 'NkY4NTQ4MEQ5RThGMUM1RjlGOTlDM0M2QkJCMUJDQ0Y1QjI4MEVCNkUyQjQ1QzFFQzlGRDJFN0U5MDhERTdDNg==') })
+      this.http.post("https://api.custodianplc.com.ng/api/Agent/GetPolicyDetails", data, { headers: new HttpHeaders().set('Authorization', 'ODc4QUMxRjJEOEVEQTkwN0U0QzFBMTBFMjkxOTc1RDYwMTUwRjhBRkJCRkUyQzFDRjNCMkE2ODcwQTcxMjlFQQ==') })
         .subscribe((res: any) => {
           if (res.status === 200) {
             localStorage.setItem('InsuredName', res.data.insuredNameField);

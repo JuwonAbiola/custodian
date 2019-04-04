@@ -7,6 +7,7 @@ import { NotificationPage } from '../pages/notification/notification';
 import { ActivationPage } from '../pages/activation/activation';
 import { HomePage } from '../pages/home/home';
 import { HomeePage } from '../pages/homee/homee';
+import { timer } from 'rxjs/observable/timer';
 
 
 @Component({
@@ -19,9 +20,10 @@ export class MyApp {
   // rootPage: any = PolicyPage;
   pages: Array<{ name: string, component: any, icon: string }>;
 
+  showSplash = true;
 
 
-  constructor(public platform: Platform, public app: App, public alertCtrl: AlertController
+  constructor(public splashScreen: SplashScreen, public statusBar: StatusBar, public platform: Platform, public app: App, public alertCtrl: AlertController
 
   ) {
     this.initializeApp();
@@ -39,6 +41,12 @@ export class MyApp {
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so te platorm is ready and our plugins are available.
+
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+
+      timer(3000).subscribe(() => this.showSplash = false) // <-- hide animation after 3s
+
       // Here you can do any higher level native things you might need.
       // StatusBar.styleDefault();
       // Splashscreen.hide();

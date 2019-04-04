@@ -99,12 +99,15 @@ export class TransactionDetailsPage {
         "biz_unit": localStorage.getItem('BizUnit'),
         "reference_no": result.rrn,
         "payment_narrtn": 'SUCCESS',
-        "premium": this.Inst
+        "premium": this.Inst,
+        "issured_name": localStorage.getItem('InsuredName'),
+        "phone_no": localStorage.getItem('TelNum'),
+        "email_address": localStorage.getItem('InsuredEmail')
       }
       console.log(datas);
       console.log(JSON.stringify(datas));
 
-      this.http.post("https://apitest.custodianplc.com.ng/api/Agent/PostTransaction", datas, { headers: new HttpHeaders().set('Authorization', 'NkY4NTQ4MEQ5RThGMUM1RjlGOTlDM0M2QkJCMUJDQ0Y1QjI4MEVCNkUyQjQ1QzFFQzlGRDJFN0U5MDhERTdDNg==') })
+      this.http.post("https://api.custodianplc.com.ng/api/Agent/PostTransaction", datas, { headers: new HttpHeaders().set('Authorization', 'ODc4QUMxRjJEOEVEQTkwN0U0QzFBMTBFMjkxOTc1RDYwMTUwRjhBRkJCRkUyQzFDRjNCMkE2ODcwQTcxMjlFQQ==') })
         .subscribe((res: any) => {
           console.log(res);
           // alert(res.message);
@@ -140,12 +143,15 @@ export class TransactionDetailsPage {
         "reference_no": result.rrn,
         "payment_narrtn": 'FAILED',
         "description": result.responsemessage,
-        "premium": this.Inst
+        "premium": this.Inst,
+        "issured_name": localStorage.getItem('InsuredName'),
+        "phone_no": localStorage.getItem('TelNum'),
+        "email_address": localStorage.getItem('InsuredEmail')
       }
       console.log(datas);
       console.log(JSON.stringify(datas));
 
-      this.http.post("https://apitest.custodianplc.com.ng/api/Agent/PostTransaction", datas, { headers: new HttpHeaders().set('Authorization', 'NkY4NTQ4MEQ5RThGMUM1RjlGOTlDM0M2QkJCMUJDQ0Y1QjI4MEVCNkUyQjQ1QzFFQzlGRDJFN0U5MDhERTdDNg==') })
+      this.http.post("https://api.custodianplc.com.ng/api/Agent/PostTransaction", datas, { headers: new HttpHeaders().set('Authorization', 'ODc4QUMxRjJEOEVEQTkwN0U0QzFBMTBFMjkxOTc1RDYwMTUwRjhBRkJCRkUyQzFDRjNCMkE2ODcwQTcxMjlFQQ==') })
         .subscribe((res: any) => {
           console.log(res);
           // alert(res.message);

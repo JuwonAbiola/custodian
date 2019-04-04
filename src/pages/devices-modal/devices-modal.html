@@ -7,11 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title><img src="assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42"></ion-title>
   </ion-navbar>
 
 </ion-header>
 
+
+<ion-header>
+  <ion-navbar>
+    <ion-title><img src="assets/icon/Mask Group 1.svg" alt="Smiley face" height="42" width="42"></ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
 
 <ion-content padding>
 

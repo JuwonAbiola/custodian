@@ -58,7 +58,9 @@ export class DevicesModalPage {
     this.deviceList = this.navParams.get('obj');
   }
 
-
+  closeModal() {
+    this.navCtrl.pop();
+  }
 
   bluetoothfunc(name, address) {
 
